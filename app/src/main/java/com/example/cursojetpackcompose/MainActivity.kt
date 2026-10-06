@@ -4,18 +4,25 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -63,7 +70,7 @@ class MainActivity : ComponentActivity() {
     @Preview
     @Composable
     fun Preview() {
-        CardMenssagem()
+        TestButtom()
     }
 
     @Composable
@@ -90,7 +97,7 @@ fun CardMenssagem(){
         Image(
             painter = painterResource(id = R.drawable.avatar),
             contentDescription = "Estátua de Liberdade" ,
-            modifier = Modifier.size(8.dp)
+            modifier = Modifier.size(40.dp)
         )
 
         Spacer(modifier = Modifier.width(8.dp))
@@ -100,6 +107,45 @@ fun CardMenssagem(){
             Text(text = "Conteúdo da Menssagem")
 
         }
+    }
+}
+
+@Composable
+fun TesteModifier(){
+    Column{
+        Text(text = "Item 1",
+            modifier = Modifier
+                .border(border = BorderStroke(width = 1.dp, color = Color.Green))
+                .padding(horizontal = 8.dp)
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(text = "Item 1",
+            modifier = Modifier
+                .border(border = BorderStroke(width = 1.dp, color = Color.Green))
+                .padding(horizontal = 8.dp, vertical = 8.dp)
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(text = "Item 1",
+            modifier = Modifier
+                .border(border = BorderStroke(width = 1.dp, color = Color.Green))
+                .padding(8.dp)
+        )
+    }
+}
+
+
+
+@Composable
+fun TestButtom(){
+    Button(onClick = { /*TODO*/ }, modifier = Modifier
+        .fillMaxWidth()
+        .padding(16.dp),
+        colors = ButtonDefaults.buttonColors( containerColor = Color.Green),
+        shape = RoundedCornerShape(10.dp)
+    ){
+        Text(text= "Confirmar")
     }
 }
 
